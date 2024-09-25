@@ -1,0 +1,7 @@
+<div th:fragment="studentInput (userName )">
+    <div class="mb-3">
+        <label for="userName" class="form-label fw-bold">Student Name:</label>
+        <input type="text" th:field="*{__${userName}__}"  name="userName" minlength="2" maxlength="20" class="form-control" id="userName" placeholder="Student Name" required>
+        <span th:if="${#fields.hasErrors('userName')}" th:errors="*{__${userName}__}" class="text-danger"></span>
+    </div>
+</div>

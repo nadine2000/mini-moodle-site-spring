@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head.html :: head"> </head>
+<body>
+
+<div th:insert="fragments/header.html :: header"> </div>
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 75vh;">
+        <div class="col-md-6 col-lg-4">
+            <h1>Hi,  <span th:text="${role}"></span> &#128075;</h1>
+            <h6>Please Login!</h6>
+            <br/>
+            <form action="#" th:action="@{/{role}(role=${role})}" method="post">
+                <div th:replace="fragments/loginInput.html :: loginInput"> </div>
+                <p><a th:href="@{/login/{role}/password(role=${role})}" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">change password</a></p>
+                <p style="color: red" th:if="${error} == 'true'" th:text="'Invalid username or password.'"></p>
+
+                <button type="submit" class="btn btn-secondary fw-bold">Login</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

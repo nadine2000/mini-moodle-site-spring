@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head.html :: head"> </head>
+<body>
+
+
+
+<span th:if="${role != 'student'}">
+
+    <nav th:insert="fragments/teacherNavBar.html :: teacherNavBar"> </nav>
+    <br/>
+<ul class="nav justify-content-center h4">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" th:onclick="|toggle1('course', 'student')|">Course </a>
+    </li>
+    <li class="nav-item">
+            |
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" th:onclick="|toggle1('student', 'course')|">Enrolled Students</a>
+    </li>
+</ul>
+    <hr>
+</span>
+<span th:unless="${role != 'student'}"><nav th:insert="fragments/studentNavBar.html :: studentNavBar"> </nav></span>
+
+
+
+
+<br/> <br/>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div id="course">
+            <div th:object="${course}">
+                <h1> Welcome to  <span th:text="${course.name}"></span> &#128075;</h1>
+                <hr>
+                <br/>
+                <h3> Course Description </h3>
+                <span th:text="${course.descriptions}"></span><br/><br/>
+                <span th:if="${role != 'student'}">
+                <button id="des1" class="btn btn-primary btn-sm" th:onclick="|toggle('des1', 'des')|"> Add OR Edite Descriptions </button>
+                <div id="des" class="d-none">
+                    <form action="#" th:action="@{/lecturer/add-des}" method="post">
+                        <div class="input-group">
+                            <span class="input-group-text">Descriptions :</span>
+                            <textarea class="form-control" name="descriptions" th:text="${course.descriptions}" aria-label="With textarea"></textarea>
+                        </div>
+                        <input type="hidden" name="id" th:value="${course.id}">
+                        <br/>
+                        <input class="btn btn-primary btn-sm" type="submit" value="ADD OR EDITE Descriptions" />
+                    </form>
+                </div>
+                </span>
+                <br/> <br/>
+                <hr>
+                <br/>
+                <h2> Forum </h2>
+                <br/>
+
+                <div class="list-group" >
+                    <button type="button" class="list-group-item list-group-item-action" th:each="f : ${course.forum}" th:text="${f}"></button>
+                </div>
+
+                <br/>
+                <span th:if="${role != 'student'}">
+                <button id="mes" class="btn btn-primary btn-sm" th:onclick="|toggle('mes', 'mes1')|"> Add Message </button>
+                <form action="#" id="mes1" class="d-none" th:action="@{/lecturer/add-message}" method="post">
+                    <input type="hidden" name="id" th:value="${course.id}">
+                    <div class="input-group">
+                        <span class="input-group-text">New Message :</span>
+                        <textarea class="form-control" name="message" aria-label="With textarea" required></textarea>
+                    </div>
+                    <br/>
+                    <input class="btn btn-primary btn-sm" type="submit" value="ADD" />
+                </form>
+                </span>
+            </div>
+        </div>
+
+        <div id="student" class="d-none">
+<span th:if="${students}">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Student ID</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="student : ${students}">
+                    <td scope="row" th:text="${student.userName}"></td>
+                    <td th:text="${student.id}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+</span>
+        </div>
+
+    </div>
+</div>
+
+<br/> <br/>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

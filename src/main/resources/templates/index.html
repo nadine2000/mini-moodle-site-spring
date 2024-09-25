@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head.html :: head"> </head>
+<body>
+
+<div th:insert="fragments/header.html :: header"> </div>
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 50vh;">
+        <div class="col-auto fw-bold display-6">
+            <h1>Welcome to  Moodle &#128075;</h1>
+            <a href="/login/admin"> Admin Area</a> |
+            <a href="/login/lecturer"> Lecturer Area</a> |
+            <a href="/login/student"> Student Area</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

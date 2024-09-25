@@ -1,0 +1,14 @@
+
+
+<div th:fragment="courseInput (name, lecturerUserName)">
+    <div class="mb-3">
+        <label for="name" class="form-label  fw-bold">Course Name:</label>
+        <input type="text" th:field="*{__${name}__}"  name="name" class="form-control" minlength="2" maxlength="40" id="name" placeholder="Course name must be unique." required>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{__${name}__}" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="lecturerUserName" class="form-label  fw-bold">Lecturer Name:</label>
+        <input type="text" class="form-control" th:field="*{__${lecturerUserName}__}" minlength="2" maxlength="20" id="lecturerUserName" name="lecturerUserName" placeholder="Lecturer Name" required>
+        <span th:if="${#fields.hasErrors('lecturerUserName')}" th:errors="*{__${lecturerUserName}__}" class="text-danger"></span>
+    </div>
+</div>

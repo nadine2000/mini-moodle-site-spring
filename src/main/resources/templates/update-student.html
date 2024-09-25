@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head.html :: head"> </head>
+<body>
+<nav th:insert="fragments/adminNavBar.html :: adminNavBar"> </nav>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 75vh;">
+        <div class="col-md-6 col-lg-4">
+            <br/>
+            <h3>Edite Student!</h3>
+            <form   class="row g-3 " action="#" th:action="@{/admin/edite-student/{id}(id=${student.id})}" th:object="${student}" method="post">
+                <div th:replace="fragments/studentInput.html :: studentInput(userName='userName')"> </div>
+                <div class="mb-3">
+                    <label for="id" class="form-label  fw-bold">Student ID:</label>
+                    <input type="number" class="form-control" th:field="*{id}" id="id" name="id" disabled placeholder="ID is also will be the student password." required>
+                    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="text-danger"></span>
+                    <span class="text-danger">Cannot Edite ID.</span>
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-secondary fw-bold">Update!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
