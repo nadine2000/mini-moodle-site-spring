@@ -1,4 +1,3 @@
-﻿﻿# mini-moodle-site-spring
 This is a **Mini Moodle**-style website that simulates a basic learning management system (LMS). It supports **Admins**, **Students**, and **Lecturers** with different levels of access and functionality.
 
 <h1>Execution</h1>
