@@ -1,24 +1,54 @@
 ﻿﻿# mini-moodle-site-spring
+This is a **Mini Moodle**-style website that simulates a basic learning management system (LMS). It supports **Admins**, **Students**, and **Lecturers** with different levels of access and functionality.
 
 <h1>Execution</h1>
 <p>
-The submission is a Intellij project that can be run directly from the IDE.
+The submission is an IntelliJ project that can be run directly from the IDE.
 </p>
 <h1>Assumptions</h1>
 <p>
-  The site use bootstap CDN therefore assumes an internet connection is available.
-  I am using Lombok and JPA Buddy plugins. make sure to enable annotation for Lombok. 
+  The site uses bootstrap CDN therefore it assumes an internet connection is available.
+  I am using Lombok and JPA Buddy plugins. make sure to enable annotation for Lombok.
 </p>
 <h1>Descriptions:</h1>
 <p>
-This is a mini moodle site. An admin can add students and courses.
-To add student you need to input student id (unique, cannot be edited or deleted once it is add) and name (can be edited).
-To log in as student, your id is the username and the password, you can change the password, when you click on change password on the log in page of the student.
-To add course you need to input the course name (unique) and lecturer name. course cannot be edited, but you can delete it.
-Once you added the course, lecturer will be able to log in with its name as a password and as a username. lecturer also can change the password later.
-Student can enroll to the avalible courses, and see courses content. student can remove the course that he added.
-lecturer can see all the courses he have, he can edite the description of the cousrs and add messages in the cousre forum.
-he also can see the enrolled student for that course.
+
+### 👩‍💼 Admin
+- Add **Students**:
+  - Input **Student ID** (must be unique; **cannot be edited or deleted** once added).
+  - Input **Student Name** (can be edited later).
+- Add **Courses**:
+  - Input **Course Name** (must be unique).
+  - Input **Lecturer Name**.
+  - Courses **cannot be edited**, but **can be deleted**.
+
+### 👨‍🎓 Student
+- **Login**:
+  - Use **Student ID** as both **Username** and **Password** on the login page.
+  - Can **change password** using the "Change Password" option.
+- **Course Interaction**:
+  - View and **enroll in available courses**.
+  - **Remove enrolled courses**.
+  - View course content and messages posted by lecturers.
+
+### 👨‍🏫 Lecturer
+- **Login**:
+  - Use **Lecturer Name** as both **Username** and **Password** on the first login.
+  - Can **change password** later.
+- **Course Management**:
+  - View all assigned courses.
+  - **Edit course description**.
+  - **Post messages** in the course forum.
+  - **View enrolled students** for each course.
+
+---
+
+## 📌 Notes
+- Once added, **Student IDs and Course Names are permanent and must be unique**.
+- Password change functionality is available for both **Students** and **Lecturers**.
+- Each user role (Admin, Student, Lecturer) has different access rights and UI options.
+
+
 </p>
 <h1>Credentials:</h1>
 <p>
@@ -26,6 +56,6 @@ To log in as an Admin: the username and the password are "admin".
 </p>
 <h1>video how it works:</h1>
 <p>
-  https://drive.google.com/drive/u/0/folders/1pzGkoTzDRU7Qp0-QLpQOxwlyQJbdaLQu
+  https://drive.google.com/file/d/1OSSfWJuZFB9oSJYVyD0rgi_e13Kj3LN2/view?usp=sharing
 </p>
 
