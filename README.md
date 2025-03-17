@@ -14,6 +14,8 @@ The submission is an IntelliJ project that can be run directly from the IDE.
 <p>
 
 ### 👩‍💼 Admin
+- **Login**:
+  - Use **Username:** `admin` and **Password:** `admin` to log in as an admin.
 - Add **Students**:
   - Input **Student ID** (must be unique; **cannot be edited or deleted** once added).
   - Input **Student Name** (can be edited later).
